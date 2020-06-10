@@ -1,0 +1,7 @@
+u=geteuid();
+printf("effective User id = %ld\n", u);
+setreuid(0,1002);
+u=getuid();
+printf("User id = %ld\n", u);
+u=geteuid();
+printf("effective User id = %ld\n", u);
