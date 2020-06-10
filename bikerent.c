@@ -194,18 +194,18 @@ void expiry_alert(int * expiry, int * current)
 void main() 
 { 
 	vehicle v;
-    FILE *fp; 
+    // FILE *fp; 
 
-	fp = fopen("service.txt", "a+") ;
-	if (fp == NULL) 
-    { 
-        printf("\nError opening file\n"); 
-    }
-	else
-	{
-		mainMenu(fp);
-	}
-	fclose(fp);
+	// fp = fopen("service.txt", "a+") ;
+	// if (fp == NULL) 
+    // {
+    //     printf("\nError opening file\n"); 
+    // }
+	// else
+	// {
+	// 	mainMenu(fp);
+	// }
+	// fclose(fp);
 }
 
 
