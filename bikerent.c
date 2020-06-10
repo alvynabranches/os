@@ -19,7 +19,6 @@ typedef struct
     char pollution_exp[20]; 
     int status; 
 } vehicle;  
-	
 
 int input() 
 { 
