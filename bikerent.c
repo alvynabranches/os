@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 
 typedef struct  
 { 
@@ -154,18 +155,18 @@ int input()
 // 		} 
 // 		case 3: { 
 // 			system("clear");
-// 		    printf("Rent Bike\n"); 
-// 		    break; 
+// 		    printf("Rent Bike\n");
+// 		    break;
 // 		} 
 // 		case 4: { 
 // 			system("clear");
-// 		    printf("Bill Bike\n"); 
-// 		    break; 
+// 		    printf("Bill Bike\n");
+// 		    break;
 // 		}
 // 		case 5: { 
 // 			system("clear");
-// 		    printf("Current Status of Bike\n"); 
-// 		    break; 
+// 		    printf("Current Status of Bike\n");
+// 		    break;
 // 		}
 // 		case 0: { 
 // 			system("clear");
@@ -219,7 +220,30 @@ int expiry_alert(int* expiry, int* current)
 
 void write_to_file(int id, char name[20], char model[20], char color[20], char vehicle_no[20], 
 					int year, char insurance_exp[20], char pollution_exp[20], int status){
-	// code here
+	int i; char sid[10]; char syear[5]; char sstatus[3];
+	itoa(id, sid); 
+	itoa(year, syear); 
+	itoa(status, sstatus);
+	char * data;
+	strcat(data, sid);
+	strcat(data, ",");
+	strcat(data, name);
+	strcat(data, ",");
+	strcat(data, model);
+	strcat(data, ",");
+	strcat(data, color);
+	strcat(data, ",");
+	strcat(data, vehicle_no);
+	strcat(data, ",");
+	strcat(data, syear);
+	strcat(data, ",");
+	strcat(data, insurance_exp);
+	strcat(data, ",");
+	strcat(data, pollution_exp);
+	strcat(data, ",");
+	strcat(data, sstatus);
+	// strcat(data, "\n");
+	fprintf(fopen("a.txt", "a"), data);
 }
 
 void main() 
@@ -246,8 +270,8 @@ void main()
 		printf("Expiring Today. Please renew it as soon as possible.\n");
 	else if (alert == 0)
 		printf("Dont worry. You have enough of time.\n");
+	write_to_file(10, "Activa", "5g", "black", "GA-03-BB-2020", 2019, "21/05/2021", "15/12/2020", 0);
 }
-
 
 
 
