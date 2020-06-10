@@ -9,15 +9,15 @@
 
 typedef struct  
 { 
-    int id; 
-    char name[20]; 
-    char model[20]; 
-    char color[20]; 
-    char vehicle_no[20]; 
-    int year; 
-    char insurance_exp[20]; 
-    char pollution_exp[20]; 
-    int status; 
+    int id;
+    char name[20];
+    char model[20];
+    char color[20];
+    char vehicle_no[20];
+    int year;
+    char insurance_exp[20];
+    char pollution_exp[20];
+    int status;
 } vehicle;  
 
 int input() 
@@ -215,6 +215,11 @@ int expiry_alert(int* expiry, int* current)
 		}
 	}
 	return 3;
+}
+
+void write_to_file(int id, char name[20], char model[20], char color[20], char vehicle_no[20], 
+					int year, char insurance_exp[20], char pollution_exp[20], int status){
+	// code here
 }
 
 void main() 
