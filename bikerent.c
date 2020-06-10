@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
-#define TEMP 256
+#define TEMP 512
 
 typedef struct  
 { 
