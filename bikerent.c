@@ -90,7 +90,7 @@ int input()
 // 		case 1: { 
 // 			system("clear");
 // 		    printf("Add Bike\n");
-// 			writeData(fp); 
+// 			writeData(fp);
 // 		    break; 
 // 		} 
 // 		case 2: { 
@@ -119,10 +119,10 @@ int input()
 // 		    printf("wrong Input\n"); 
 // 		}
 // 	} while(choice !=0);
-
 // }
 
-// void mainMenu(FILE *fp){
+// FILE *fp
+// void mainMenu(){
 // 	int choice;
 // 	do{
 
@@ -179,7 +179,6 @@ int input()
 // 		    printf("wrong Input\n"); 
 // 		}
 // 	} while(choice !=0);
-
 // }
 
 int* date(int date, int month, int year){
@@ -219,15 +218,27 @@ int expiry_alert(int* expiry, int* current)
 	return 3;
 }
 
+void expiry_alert_2(int * expiry, int * current){
+	int alert = expiry_alert(expiry, current);
+	if (alert == 1)
+		printf("Expired. Please renew immadietely, otherwise you will have to pay a fine.\n");
+	else if (alert == 2)
+		printf("Expiring Today. Please renew it as soon as possible.\n");
+	else if (alert == 0)
+		printf("Dont worry. You have enough of time.\n");
+}
+
 void write_to_file(int id, char name[20], char model[20], char color[20], char vehicle_no[20], 
 					int year, char insurance_exp[20], char pollution_exp[20], int status){
 	int i; char sid[10]; char syear[5]; char sstatus[3];
 	itoa(id, sid);
 	sprintf(sid, "%d", id);
-	
 	itoa(year, syear);
+	sprintf(syear, "%d", year);
 	itoa(status, sstatus);
-	char data[256];
+	sprintf(sstatus, "%d", status);
+	
+	char data[TEMP];
 	strcat(data, sid); strcat(data, ", ");
 	strcat(data, name); strcat(data, ", ");
 	strcat(data, model); strcat(data, ", ");
@@ -240,29 +251,23 @@ void write_to_file(int id, char name[20], char model[20], char color[20], char v
 	fprintf(fopen("a.txt", "a"), data);
 }
 
+// void display() {
+// 	fprintf(fopen("a.txt", "r"), data);
+// }
+
 void main() 
 { 
 	vehicle v;
-    // FILE *fp; 
-
+    // FILE *fp;
 	// fp = fopen("service.txt", "a+") ;
-	// if (fp == NULL) 
-    // {
-    //     printf("\nError opening file\n"); 
-    // }
+	// if (fp == NULL)
+    //     printf("\nError opening file\n");
 	// else
-	// {
 	// 	mainMenu(fp);
-	// }
 	// fclose(fp);
+	// vehicle v;
+	write_to_file(200, "Activa", "5g", "black", "GA-03-BB-2020", 2018, "21/05/2021", "15/12/2020", 1);
 	int expiry[] = {10, 6, 2020};
 	int current[] = {10, 6, 2020};
-	int alert = expiry_alert(expiry, current);
-	if (alert == 1)
-		printf("Expired. Please renew immadietely, otherwise you will have to pay a fine.\n");
-	else if (alert == 2)
-		printf("Expiring Today. Please renew it as soon as possible.\n");
-	else if (alert == 0)
-		printf("Dont worry. You have enough of time.\n");
-	write_to_file(250, "Activa", "5g", "black", "GA-03-BB-2020", 2019, "21/05/2021", "15/12/2020", 1);
+	expiry_alert_2(expiry, current);
 }
