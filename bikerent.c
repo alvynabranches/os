@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
+#define TEMP 256
 
 typedef struct  
 { 
@@ -221,28 +222,21 @@ int expiry_alert(int* expiry, int* current)
 void write_to_file(int id, char name[20], char model[20], char color[20], char vehicle_no[20], 
 					int year, char insurance_exp[20], char pollution_exp[20], int status){
 	int i; char sid[10]; char syear[5]; char sstatus[3];
-	itoa(id, sid); 
-	itoa(year, syear); 
+	itoa(id, sid);
+	sprintf(sid, "%d", id);
+	
+	itoa(year, syear);
 	itoa(status, sstatus);
 	char data[256];
-	strcat(data, sid);
-	strcat(data, ", ");
-	strcat(data, name);
-	strcat(data, ", ");
-	strcat(data, model);
-	strcat(data, ", ");
-	strcat(data, color);
-	strcat(data, ", ");
-	strcat(data, vehicle_no);
-	strcat(data, ", ");
-	strcat(data, syear);
-	strcat(data, ", ");
-	strcat(data, insurance_exp);
-	strcat(data, ", ");
-	strcat(data, pollution_exp);
-	strcat(data, ", ");
-	strcat(data, sstatus);
-	strcat(data, "\n");
+	strcat(data, sid); strcat(data, ", ");
+	strcat(data, name); strcat(data, ", ");
+	strcat(data, model); strcat(data, ", ");
+	strcat(data, color); strcat(data, ", ");
+	strcat(data, vehicle_no); strcat(data, ", ");
+	strcat(data, syear); strcat(data, ", ");
+	strcat(data, insurance_exp); strcat(data, ", ");
+	strcat(data, pollution_exp); strcat(data, ", ");
+	strcat(data, sstatus); strcat(data, "\n");
 	fprintf(fopen("a.txt", "a"), data);
 }
 
