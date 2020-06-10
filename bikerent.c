@@ -28,44 +28,44 @@ int input()
     return (number);
 } 
 
-void writeData(FILE *fp){
-	char choice = 'y';
-	vehicle v;
-	int id=0;
-	static status=0;
-	while(choice == 'y')
-	{
-		printf("Enter the name of the vehicle : ex. Activa\n");	
-		scanf("%s", v.name);
-		printf("Enter the model of the vehicle : ex. 3G\n");	
-		scanf("%s", v.model);
-		printf("Enter the color of the vehicle : ex. white\n");	
-		scanf("%s", v.color);
-		printf("Enter the vehicle no of the vehicle : ex. GA-03-AE-7443\n");	
-		scanf("%s", v.vehicle_no);
-		printf("Enter the year of the vehicle : ex. 2020\n");	
-		scanf("%d", &v.year);
-		printf("Enter the Insurance expiry date of the vehicle : ex. 20-10-2020\n");	
-		scanf("%s", v.insurance_exp);
-		printf("Enter the Pollution expiry date of the vehicle : ex. 20-10-2020\n");	
-		scanf("%s", v.pollution_exp);
+// void writeData(FILE *fp){
+// 	char choice = 'y';
+// 	vehicle v;
+// 	int id=0;
+// 	static status=0;
+// 	while(choice == 'y')
+// 	{
+// 		printf("Enter the name of the vehicle : ex. Activa\n");	
+// 		scanf("%s", v.name);
+// 		printf("Enter the model of the vehicle : ex. 3G\n");	
+// 		scanf("%s", v.model);
+// 		printf("Enter the color of the vehicle : ex. white\n");	
+// 		scanf("%s", v.color);
+// 		printf("Enter the vehicle no of the vehicle : ex. GA-03-AE-7443\n");	
+// 		scanf("%s", v.vehicle_no);
+// 		printf("Enter the year of the vehicle : ex. 2020\n");	
+// 		scanf("%d", &v.year);
+// 		printf("Enter the Insurance expiry date of the vehicle : ex. 20-10-2020\n");	
+// 		scanf("%s", v.insurance_exp);
+// 		printf("Enter the Pollution expiry date of the vehicle : ex. 20-10-2020\n");	
+// 		scanf("%s", v.pollution_exp);
 
-		fseek(fp, 0, SEEK_END);
-		id++;
-		fprintf(fp,"%d %s %s %s %s %d %s %s %d\n",v.id,v.name,v.model,v.color,v.vehicle_no,v.year,v.insurance_exp,v.pollution_exp,v.status);
-		printf("Press y : To add a new record or any other key to go back\n");
-		scanf(" %c", &choice);
-	}
-}
+// 		fseek(fp, 0, SEEK_END);
+// 		id++;
+// 		fprintf(fp,"%d %s %s %s %s %d %s %s %d\n",v.id,v.name,v.model,v.color,v.vehicle_no,v.year,v.insurance_exp,v.pollution_exp,v.status);
+// 		printf("Press y : To add a new record or any other key to go back\n");
+// 		scanf(" %c", &choice);
+// 	}
+// }
 
-void readData(FILE *fp){
-	rewind(fp);
-	vehicle v;
-	while(fscanf(fp,"%d %s %s %s %s %d %s %s %d\n",&v.id,v.name,v.model,v.color,v.vehicle_no,&v.year,v.insurance_exp,v.pollution_exp,&v.status) != EOF){
-		printf(fp,"\n%d %s %s %s %s %d %s %s %d",v.id,v.name,v.model,v.color,v.vehicle_no,v.year,v.insurance_exp,v.pollution_exp,v.status);
-	}
-	printf("\n");
-}
+// void readData(FILE *fp){
+// 	rewind(fp);
+// 	vehicle v;
+// 	while(fscanf(fp,"%d %s %s %s %s %d %s %s %d\n",&v.id,v.name,v.model,v.color,v.vehicle_no,&v.year,v.insurance_exp,v.pollution_exp,&v.status) != EOF){
+// 		printf(fp,"\n%d %s %s %s %s %d %s %s %d",v.id,v.name,v.model,v.color,v.vehicle_no,v.year,v.insurance_exp,v.pollution_exp,v.status);
+// 	}
+// 	printf("\n");
+// }
 
 void bikeMenu(FILE *fp){
 	int choice;
